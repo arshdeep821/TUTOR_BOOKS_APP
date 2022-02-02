@@ -1,6 +1,6 @@
 # My Personal Project Proposal
 
-## Arshdeep Jaggo
+### Arshdeep Jaggo
 
 ### Project *Details* and *Description*:
 
@@ -33,6 +33,14 @@ are just not enough, and you could really just use a one on one session with a t
 a tutoring application interests me because I could imagine myself utilizing an application like this in my
 remaining years to get help with course work. I feel that it is something that would massively impact my studies
 and improve my understanding of course material as well.
+
+### User Stories
+- As a user, I want to be able to book a single or multiple tutoring sessions at different 
+times throughout the week/month. In a sense, adding multiple tutoring sessions to my schedule
+- As a user, I want to be able to cancel a booked appointment
+- As a user, I want to be able to select the course I want tutoring for
+- As a user, I want to be able to view a list of subjects available
+- As a user, I want to be able to change a booked time
 
 A *bulleted* list:
 - item 1
