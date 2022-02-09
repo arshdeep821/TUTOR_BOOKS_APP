@@ -13,7 +13,7 @@ public class TutorApp {
     TutorOrganization tutorOrganization = new TutorOrganization();
     Student student = new Student();
     int option;
-    String name = scanner.nextLine();
+
 
     public TutorApp() {
         runTutor();
@@ -23,6 +23,8 @@ public class TutorApp {
 
         option = 1;
         System.out.println("Enter Name:");
+        String name = scanner.nextLine();
+
         student.setStudentName(name);
         System.out.println("Hello " + name);
 
