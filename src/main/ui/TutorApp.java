@@ -50,7 +50,7 @@ public class TutorApp {
     }
 
     private void display1() {
-        System.out.println("Select a time from 1-20(24hr clock) for your tutoring session");
+        System.out.println("Select a time from 0-19(24hr clock) for your tutoring session");
     }
 
 

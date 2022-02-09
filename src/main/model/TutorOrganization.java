@@ -32,12 +32,15 @@ public class TutorOrganization {
         studentBooking = bookingTimes.get(appointmentTime);
         if (studentBooking.getStudentName() == s.getStudentName()) {
             return true;
-        } else {
+        } /*else {
 
             if (studentBooking == null) {
                 return false;
             }
+
+
         }
+        */
         return false;
     }
 
