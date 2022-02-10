@@ -33,6 +33,7 @@ public class TutorOrganization {
         return true;
     }
 
+/*
 
     // EFFECTS: return true if student is found at the correct appointmentTime
     public boolean affirmAppointment(Student s, int appointmentTime) {
@@ -41,19 +42,12 @@ public class TutorOrganization {
         if (studentBooking.getStudentName() == s.getStudentName()) {
             return true;
         }
-
-
-        /*else {
-
-            if (studentBooking == null) {
-                return false;
-            }
-        }
-        */
         return false;
-
-
     }
+
+ */
+
+
 
 
     // EFFECTS: return true if the student is booked at the correct appointmentTime
@@ -92,8 +86,6 @@ public class TutorOrganization {
     // MODIFIES: this
     // EFFECTS: changes the appointment time of student
     public void changeAppointment(Student s, int currentAppointmentTime,int nextAppointmentTime) {
-        //int appointmentSession;
-        //appointmentSession = s.getBookedSession();
         bookingTimes.set(currentAppointmentTime, null);
         bookingTimes.set(nextAppointmentTime, s);
         s.setBookedSession(nextAppointmentTime);

@@ -36,13 +36,14 @@ and improve my understanding of course material as well.
 
 ### User Stories
 - As a user, I want to be able to book a single or multiple tutoring sessions at different 
-times throughout the week/month. In a sense, adding multiple tutoring sessions to my schedule
+times. In a sense, adding multiple tutoring sessions to my schedule
 - As a user, I want to be able to cancel a booked appointment
 - As a user, I want to be able to select the course I want tutoring for
 - As a user, I want to be able to view a list of subjects available
 - As a user, I want to be able to change a booked time
 - As a user, I want to be informed when a session is taken and be told to rebook
-- As a user, 
+- As a user, I want the option to continue booking more tutoring sessions or to stop after bookig
+a session
 
 A *bulleted* list:
 - item 1
