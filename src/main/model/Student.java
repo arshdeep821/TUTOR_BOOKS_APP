@@ -1,7 +1,14 @@
 package model;
 
+
+// Class level comment:
+/*
+- The student class represents an instance of a student with a name and booking session
+- The name of the student is represented via a string and their most recent booked session
+  is represented by an int, which would be the 24 hour clock representation of their most
+  recent booked session
+ */
 public class Student {
-    // delete or rename this class!
     private String studentName;
     private int bookedSession;
 

@@ -5,7 +5,12 @@ import model.TutorOrganization;
 
 import java.util.Scanner;
 
-
+// Class level comment
+/*
+- Runs the tutor app through the Java console
+- Allows user to type in inputs in order to book sessions at specific times
+- methods and fields represents actions that the user inputed into the console
+ */
 public class TutorApp {
 
     boolean cont = true;
@@ -15,10 +20,13 @@ public class TutorApp {
     int option;
 
 
+    // EFFECTS: runs the tutor app method
     public TutorApp() {
         runTutor();
     }
 
+    // EFFECTS: sets up the console for the UI, allowing user to enter commands such as
+    //          to make an appointment/cancel, change appointment etc.
     private void runTutor() {
 
         option = 1;
@@ -45,15 +53,17 @@ public class TutorApp {
             if (option != 1) {
                 System.out.println("Thank you for booking, see you at your session");
             }
-
         }
     }
 
+    // EFFECTS: Prints string onto the console for user to see when they can book their session
     private void display1() {
         System.out.println("Select a time from 0-19(24hr clock) for your tutoring session");
     }
 
 
+    // REQUIRES: A student to have attempted to book a session that is already taken
+    // EFFECTS: It allows the student to request a new session that is not taken
     private void changeBooking() {
         while (cont) {
             display1();
@@ -77,8 +87,4 @@ public class TutorApp {
             }
         }
     }
-
-
-
-
 }

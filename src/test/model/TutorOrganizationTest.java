@@ -35,6 +35,7 @@ class TutorOrganizationTest {
         assertTrue(outsideOfTheBoxTutoring.checkIfTaken(3));
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 3));
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Billy", 5));
+        assertEquals(3,billy.getBookedSession());
 
         // change appointment time
         outsideOfTheBoxTutoring.changeAppointment(billy, 3,4);
@@ -42,10 +43,11 @@ class TutorOrganizationTest {
         assertTrue(outsideOfTheBoxTutoring.checkIfTaken(4));
        assertTrue(outsideOfTheBoxTutoring.affirmAppointment(billy, 4));
        assertFalse(outsideOfTheBoxTutoring.affirmAppointment(billy, 3));
+       assertEquals(4, billy.getBookedSession());
 
         // check if new time is correct
         assertTrue(outsideOfTheBoxTutoring.affirmAppointment(billy, 4));
-        //assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 4));
+        assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 4));
 
         // add new person to old booking time
         outsideOfTheBoxTutoring.makeNewTutorSession(sarah, 3);

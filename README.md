@@ -41,6 +41,8 @@ times throughout the week/month. In a sense, adding multiple tutoring sessions t
 - As a user, I want to be able to select the course I want tutoring for
 - As a user, I want to be able to view a list of subjects available
 - As a user, I want to be able to change a booked time
+- As a user, I want to be informed when a session is taken and be told to rebook
+- As a user, 
 
 A *bulleted* list:
 - item 1

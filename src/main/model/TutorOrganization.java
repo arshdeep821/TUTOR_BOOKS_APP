@@ -3,6 +3,13 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Class level comment:
+/*
+- This class represents a list of Students, which translates to a list of bookings of which student has booked which
+session
+- It sets up a list of 20 null slots, and it will set the slot number to the student name who requests that time
+  unless it is already
+ */
 public class TutorOrganization {
     private List<Student> bookingTimes;
 
@@ -26,22 +33,26 @@ public class TutorOrganization {
         return true;
     }
 
+
     // EFFECTS: return true if student is found at the correct appointmentTime
     public boolean affirmAppointment(Student s, int appointmentTime) {
         Student studentBooking;
         studentBooking = bookingTimes.get(appointmentTime);
         if (studentBooking.getStudentName() == s.getStudentName()) {
             return true;
-        } /*else {
+        }
+
+
+        /*else {
 
             if (studentBooking == null) {
                 return false;
             }
-
-
         }
         */
         return false;
+
+
     }
 
 
@@ -75,16 +86,14 @@ public class TutorOrganization {
     //          true means appointment got cancelled, else false
     public void cancelAppointment(int currentAppointmentTime) {
         bookingTimes.set(currentAppointmentTime, null);
-
-
-
     }
 
+    // REQUIRES: A student that already has a booked appointment
     // MODIFIES: this
     // EFFECTS: changes the appointment time of student
     public void changeAppointment(Student s, int currentAppointmentTime,int nextAppointmentTime) {
-        int appointmentSession;
-        appointmentSession = s.getBookedSession();
+        //int appointmentSession;
+        //appointmentSession = s.getBookedSession();
         bookingTimes.set(currentAppointmentTime, null);
         bookingTimes.set(nextAppointmentTime, s);
         s.setBookedSession(nextAppointmentTime);
