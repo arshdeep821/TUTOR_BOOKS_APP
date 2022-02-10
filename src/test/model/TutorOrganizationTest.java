@@ -32,7 +32,7 @@ class TutorOrganizationTest {
     }
 
     @Test
-    void testBookAtAvailableTime() {
+    void testmakeNewTutorSession() {
         // make the booking
         assertTrue(outsideOfTheBoxTutoring.makeNewTutorSession(billy, 3));
 
@@ -89,6 +89,13 @@ class TutorOrganizationTest {
         assertFalse(outsideOfTheBoxTutoring.checkIfTaken(5));
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Sarah", 5));
 
+        // approve student name with zero appointments (should return false
+        assertFalse(outsideOfTheBoxTutoring.approveStudentName("Josh", 10));
+        assertFalse(outsideOfTheBoxTutoring.checkIfTaken(10));
+        // now make the appointment for that student and verify again
+        assertTrue(outsideOfTheBoxTutoring.makeNewTutorSession(josh, 10));
+        assertTrue(outsideOfTheBoxTutoring.checkIfTaken(10));
+        assertTrue(outsideOfTheBoxTutoring.approveStudentName("Josh", 10));
     }
 
     @Test
@@ -109,6 +116,10 @@ class TutorOrganizationTest {
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Kidda", 0));
         assertEquals(19, dil.getBookedSession());
         assertEquals(0, kidda.getBookedSession());
+
+        //approve wrong student at wrong time to test false case for approve student name
+        assertFalse(outsideOfTheBoxTutoring.approveStudentName("Dil", 0));
+        assertFalse(outsideOfTheBoxTutoring.approveStudentName("Kidda", 19));
 
         //test you can't make booking higher than 19
         assertFalse(outsideOfTheBoxTutoring.makeNewTutorSession(josh, 20));

@@ -90,5 +90,4 @@ public class TutorOrganization {
         bookingTimes.set(nextAppointmentTime, s);
         s.setBookedSession(nextAppointmentTime);
     }
-
 }
