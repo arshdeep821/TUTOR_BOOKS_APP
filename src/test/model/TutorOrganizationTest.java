@@ -21,7 +21,7 @@ class TutorOrganizationTest {
     Student josh;
     TutorOrganization outsideOfTheBoxTutoring;
 
-    //EFFECTS: instantiates all objects (TutorOrganization and Student) needed for the test method
+    // instantiates all objects (TutorOrganization and Student) needed for the test method
     @BeforeEach
     void runBefore() {
         billy = new Student();
@@ -37,9 +37,9 @@ class TutorOrganizationTest {
         josh.setStudentName("Josh");
     }
 
-    // EFFECTS: This will be testing the makeNewTutorSession method but since almost every method needs a
-    //           tutorsession to be made before testing themselves, this is also where other methods
-    //           will be tested, but the main method being tested is the makeNewTutorSession
+    // This will be testing the makeNewTutorSession method but since almost every method needs a
+    // tutorsession to be made before testing themselves, this is also where other methods
+    // will be tested, but the main method being tested is the makeNewTutorSession
     @Test
     @SuppressWarnings("methodlength")
     void testmakeNewTutorSession() {
@@ -104,7 +104,7 @@ class TutorOrganizationTest {
     }
 
     @Test
-    // EFFECTS: tests edge cases of TutorOrganization class
+    // tests edge cases of TutorOrganization class
     public void testEdgeCases() {
         //book at edge cases
         assertTrue(outsideOfTheBoxTutoring.makeNewTutorSession(kidda, 0));
