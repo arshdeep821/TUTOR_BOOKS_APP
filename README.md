@@ -14,8 +14,6 @@ a student can book a session for tomorrow and next week, but they realize they c
 it to the session for tomorrow. So they can cancel the session for tomorrow and maybe **REBOOK or CHANGE** it
 later this week. They could select from a variety of courses that they would like to have help with.
 For instance, some options could be **MATH, PHYSICS, ENGLISH, CHEMISTRY, etc**.
-All these courses can be viewed in a list format so that it is easy for a student to select what 
-course they want help with. 
 
 This application will be best for students who are struggling to keep up with their academics
 and course load. They will be able to use this app in order to get the extra help they need to pass
@@ -37,25 +35,21 @@ and improve my understanding of course material as well.
 ### User Stories
 - As a user, I want to be able to book a single or multiple tutoring sessions at different 
 times. In a sense, adding multiple tutoring sessions to my schedule
-- As a user, I want to be informed that a session or sessions have been booked successfully
-- As a user, I want to be informed when a session is taken and be told to rebook for a different time that is not already
-booked
+- As a user, I want to be informed that a session or sessions have been booked successfully after making a single
+appointment
+- As a user, I want to be informed when a session is taken, after attempting to book a session
+(that is already booked by another student) and be told to rebook for a different time 
 - As a user, I want the option to continue booking more tutoring sessions or to stop after making a single booking
-  a session
+  a session (to be able to exit out of booking whenever I feel I have booked enough sessions)
 
 
+### Referenced Code:
 
-- As a user, I want to be able to cancel a booked appointment
-- As a user, I want to be able to select the course I want tutoring for
-- As a user, I want to be able to view a list of subjects available
-- As a user, I want to be able to change a booked time
-- 
+For my project, It is similar to the HairSolon starter in the github repositories, I did reference some
+code in the starter for my model package as it had a similar system of making bookings at certain times. 
+At times I would code my own methods and check if it was working correctly via tests and comparing it to similar
+methods in that file. Other times, when I was stuck, I would go into that starter, trying to find a starting point
+of where I can start to fix my issue. Overall, references were made to this starter and the link for the repository
+is posted here
 
-
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
-
-An example of text with **bold** and *italic* fonts.  
-
+gh repo clone github.students.cs.ubc.ca/CPSC210/DataAbstractionLectureStarters

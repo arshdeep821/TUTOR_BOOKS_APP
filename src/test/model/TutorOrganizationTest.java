@@ -5,9 +5,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Class level comment:
+/*
+This is the class where all the testing will occur for TutorOrganization, but since TutorOrganzation needs
+Student, the Student class, which is much smaller, is also tested here
+ */
 
 class TutorOrganizationTest {
 
+    // instances of Students and a TutorOrganization setup for runBefore method
     Student billy;
     Student sarah;
     Student dil;
@@ -15,6 +21,7 @@ class TutorOrganizationTest {
     Student josh;
     TutorOrganization outsideOfTheBoxTutoring;
 
+    //EFFECTS: instantiates all objects (TutorOrganization and Student) needed for the test method
     @BeforeEach
     void runBefore() {
         billy = new Student();
@@ -28,10 +35,13 @@ class TutorOrganizationTest {
         kidda.setStudentName("Kidda");
         josh = new Student();
         josh.setStudentName("Josh");
-
     }
 
+    // EFFECTS: This will be testing the makeNewTutorSession method but since almost every method needs a
+    //           tutorsession to be made before testing themselves, this is also where other methods
+    //           will be tested, but the main method being tested is the makeNewTutorSession
     @Test
+    @SuppressWarnings("methodlength")
     void testmakeNewTutorSession() {
         // make the booking
         assertTrue(outsideOfTheBoxTutoring.makeNewTutorSession(billy, 3));
@@ -39,7 +49,6 @@ class TutorOrganizationTest {
         //check if booking is at correct time
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 3));
         assertEquals("Billy", billy.getStudentName());
-     //   assertTrue(outsideOfTheBoxTutoring.affirmAppointment(billy, 3));
 
         //check if student name is at correct time
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 3));
@@ -50,23 +59,15 @@ class TutorOrganizationTest {
 
         // change appointment time
         outsideOfTheBoxTutoring.changeAppointment(billy, 3,4);
+
         //check if it is empty at 3
         assertFalse(outsideOfTheBoxTutoring.checkIfTaken(3));
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Billy", 3));
+
         // check if taken at 4
         assertTrue(outsideOfTheBoxTutoring.checkIfTaken(4));
         assertEquals(4, billy.getBookedSession());
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 4));
-
-   //    assertTrue(outsideOfTheBoxTutoring.affirmAppointment(billy, 4));
-       //assertFalse(outsideOfTheBoxTutoring.affirmAppointment(billy, 3));
-
-
-
-
-        // check if new time is correct
-     //   assertTrue(outsideOfTheBoxTutoring.affirmAppointment(billy, 4));
-
 
         // add new person to old booking time
         outsideOfTheBoxTutoring.makeNewTutorSession(sarah, 3);
@@ -77,13 +78,16 @@ class TutorOrganizationTest {
 
         //change booking
         outsideOfTheBoxTutoring.changeAppointment(sarah, 3, 5);
+
         //check if old is empty
         assertFalse(outsideOfTheBoxTutoring.checkIfTaken(3));
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Sarah", 3));
+
         //check if new is taken
         assertTrue(outsideOfTheBoxTutoring.checkIfTaken(5));
         assertEquals(5, sarah.getBookedSession());
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Sarah", 5));
+
         // cancel appointment
         outsideOfTheBoxTutoring.cancelAppointment(5);
         assertFalse(outsideOfTheBoxTutoring.checkIfTaken(5));
@@ -92,6 +96,7 @@ class TutorOrganizationTest {
         // approve student name with zero appointments (should return false
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Josh", 10));
         assertFalse(outsideOfTheBoxTutoring.checkIfTaken(10));
+
         // now make the appointment for that student and verify again
         assertTrue(outsideOfTheBoxTutoring.makeNewTutorSession(josh, 10));
         assertTrue(outsideOfTheBoxTutoring.checkIfTaken(10));
@@ -99,10 +104,8 @@ class TutorOrganizationTest {
     }
 
     @Test
+    // EFFECTS: tests edge cases of TutorOrganization class
     public void testEdgeCases() {
-        // make new person
-
-
         //book at edge cases
         assertTrue(outsideOfTheBoxTutoring.makeNewTutorSession(kidda, 0));
         assertEquals("Kidda", kidda.getStudentName());
@@ -117,7 +120,7 @@ class TutorOrganizationTest {
         assertEquals(19, dil.getBookedSession());
         assertEquals(0, kidda.getBookedSession());
 
-        //approve wrong student at wrong time to test false case for approve student name
+        //approve wrong student at wrong time to test false case for approveStudentName method
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Dil", 0));
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Kidda", 19));
 
@@ -125,4 +128,50 @@ class TutorOrganizationTest {
         assertFalse(outsideOfTheBoxTutoring.makeNewTutorSession(josh, 20));
     }
 
+    @Test
+    // tests change appointment method
+    public void testChangeAppointment() {
+        // make the booking
+        assertTrue(outsideOfTheBoxTutoring.makeNewTutorSession(billy, 10));
+
+        //check if booking is at correct time
+        assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 10));
+        assertEquals("Billy", billy.getStudentName());
+
+        //check if student name is at correct time
+        assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 10));
+        assertTrue(outsideOfTheBoxTutoring.checkIfTaken(10));
+        assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 10));
+        assertFalse(outsideOfTheBoxTutoring.approveStudentName("Billy", 12));
+        assertEquals(10, billy.getBookedSession());
+
+        // change appointment time
+        outsideOfTheBoxTutoring.changeAppointment(billy, 10,15);
+
+        //check if it is empty at 3
+        assertFalse(outsideOfTheBoxTutoring.checkIfTaken(10));
+        assertFalse(outsideOfTheBoxTutoring.approveStudentName("Billy", 10));
+
+        // check if taken at 4
+        assertTrue(outsideOfTheBoxTutoring.checkIfTaken(15));
+        assertEquals(15, billy.getBookedSession());
+        assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 15));
+    }
+
+    @Test
+    // tests cancelAppointment method
+    public void testcancelAppintment() {
+        // make appointment
+        assertTrue(outsideOfTheBoxTutoring.makeNewTutorSession(sarah, 5));
+        assertTrue(outsideOfTheBoxTutoring.approveStudentName("Sarah", 5));
+        assertTrue(outsideOfTheBoxTutoring.checkIfTaken(5));
+
+        // cancel appointment
+        outsideOfTheBoxTutoring.cancelAppointment(5);
+
+        //check if appointment is cancelled
+        assertFalse(outsideOfTheBoxTutoring.checkIfTaken(5));
+        assertFalse(outsideOfTheBoxTutoring.approveStudentName("Sarah", 5));
+
+    }
 }

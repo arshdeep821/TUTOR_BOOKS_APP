@@ -20,13 +20,14 @@ public class TutorApp {
     int option;
 
 
-    // EFFECTS: runs the tutor app method
+    // EFFECTS: runs the tutor app
     public TutorApp() {
         runTutor();
     }
 
-    // EFFECTS: sets up the console for the UI, allowing user to enter commands such as
-    //          to make an appointment/cancel, change appointment etc.
+    // MODIFIES: this
+    // EFFECTS: sets up the console for the UI, allowing user to enter commands/inputs in relation to booking sessions
+    //          processes user input
     private void runTutor() {
 
         option = 1;
@@ -62,7 +63,7 @@ public class TutorApp {
     }
 
 
-    // REQUIRES: A student to have attempted to book a session that is already taken
+    // MODIFIES: this
     // EFFECTS: It allows the student to request a new session that is not taken
     private void changeBooking() {
         while (cont) {

@@ -2,7 +2,7 @@ package ui;
 
 // Class level comment
 /*
-Runs the tutor app, allowing user to make inputs
+Runs the tutor app, allowing user to make inputs and the app to run in general
  */
 public class Main {
 
