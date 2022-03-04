@@ -1,7 +1,12 @@
 package model;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import persistence.JsonReader;
+
+import java.io.IOException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,7 +17,7 @@ This is the class where all the testing will occur for TutorOrganization, but si
 Student, the Student class, which is much smaller, is also tested here
  */
 
-class TutorOrganizationTest {
+class TutorOrganizationTest extends JsonTest{
 
     // instances of Students and a TutorOrganization setup for runBefore method
     Student billy;
@@ -31,7 +36,7 @@ class TutorOrganizationTest {
         sarah.setStudentName("Sarah");
         dil = new Student("Dil", 7);
         dil.setStudentName("Dil");
-        outsideOfTheBoxTutoring = new TutorOrganization("Hello");
+        outsideOfTheBoxTutoring = new TutorOrganization("Outside Of The Box Tutoring");
         kidda = new Student("Kidda", 5);
         kidda.setStudentName("Kidda");
         josh = new Student("Josh", 6);
@@ -175,4 +180,41 @@ class TutorOrganizationTest {
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Sarah", 5));
 
     }
+
+    @Test
+    public void testgetBookingTimes() {
+        assertTrue(outsideOfTheBoxTutoring.makeNewTutorSession(sarah, 5));
+        assertTrue(outsideOfTheBoxTutoring.approveStudentName("Sarah", 5));
+        assertTrue(outsideOfTheBoxTutoring.checkIfTaken(5));
+
+        assertEquals(20, outsideOfTheBoxTutoring.getBookingTimes());
+    }
+
+    @Test
+    public void testgetStudentList() {
+        assertTrue(outsideOfTheBoxTutoring.makeNewTutorSession(sarah, 5));
+        assertTrue(outsideOfTheBoxTutoring.approveStudentName("Sarah", 5));
+        assertTrue(outsideOfTheBoxTutoring.checkIfTaken(5));
+
+        assertEquals(20, outsideOfTheBoxTutoring.getStudentList().size());
+    }
+
+    @Test
+    public void testgetTutorName() {
+        assertEquals("Outside Of The Box Tutoring", outsideOfTheBoxTutoring.getTutorName());
+    }
+
+    @Test
+    public void testTutorOrganizationtoJson() {
+        billy.toJson();
+    }
+/*
+    @Test
+    public void testStudenttoJson() {
+        outsideOfTheBoxTutoring.toJson();
+    }
+
+ */
+
+
 }
