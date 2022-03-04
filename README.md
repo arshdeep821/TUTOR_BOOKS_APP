@@ -33,6 +33,8 @@ remaining years to get help with course work. I feel that it is something that w
 and improve my understanding of course material as well.
 
 ### User Stories
+
+Phase 1:
 - As a user, I want to be able to book a single or multiple tutoring sessions at different 
 times. In a sense, adding multiple tutoring sessions to my schedule
 - As a user, I want to be informed that a session or sessions have been booked successfully after making a single
@@ -42,7 +44,10 @@ appointment
 - As a user, I want the option to continue booking more tutoring sessions or to stop after making a single booking
   a session (to be able to exit out of booking whenever I feel I have booked enough sessions)
 
-
+Phase 2:
+- As a user, when I select the quit option from the application menu, I want to be reminded to save my TutorBookings to 
+file and have the option to do so or not.
+- As a user, when I start the application, I want to be given the option to load my TutorBookings list from file.
 ### Referenced Code:
 
 For my project, It is similar to the HairSolon starter in the github repositories, I did reference some
@@ -53,3 +58,9 @@ of where I can start to fix my issue. Overall, references were made to this star
 is posted here
 
 gh repo clone github.students.cs.ubc.ca/CPSC210/DataAbstractionLectureStarters
+
+I also have referenced to the JsonSerializationDemo to aid with implementing my data persistence classes. Below is 
+a link to the repository if you want to check it out and look at the similarities:
+
+gh repo clone github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+

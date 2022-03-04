@@ -71,7 +71,7 @@ public class JsonWriterTest extends JsonTest{
         JsonWriter j1 = new JsonWriter("coolio");
         assertEquals("coolio", j1.getDestination());
     }
-
+/*
     @Test
     public void testwrite() {
             JsonWriter writer = new JsonWriter("./data/testwrite.json");
@@ -92,6 +92,8 @@ public class JsonWriterTest extends JsonTest{
         TutorOrganization tutorOrganization = new TutorOrganization("T4");
         writer.write(tutorOrganization);
     }
+
+ */
 
 
 
