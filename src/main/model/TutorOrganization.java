@@ -1,5 +1,9 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,16 +16,19 @@ session
 - It sets up a list of 20 null slots, and it will set the slot number to the student name who requests that time
   unless it is already booked
  */
-public class TutorOrganization {
+public class TutorOrganization implements Writable {
     private List<Student> bookingTimes;
+    private String name;
 
 
     // EFFECTS: Construct empty ArrayList with 20 null slots
-    public TutorOrganization() {
+    public TutorOrganization(String name) {
         bookingTimes = new ArrayList<>();
         for (int n = 0; n <= 19; n++) {
             bookingTimes.add(n, null);
         }
+
+        this.name = name;
     }
 
     // REQUIRES: An appointmentTime between [0,19]
@@ -35,6 +42,7 @@ public class TutorOrganization {
         s.setBookedSession(appointmentTime);
         return true;
     }
+
 
 
     // EFFECTS: return true if the student is booked at the correct appointmentTime of their choice
@@ -79,5 +87,36 @@ public class TutorOrganization {
         bookingTimes.set(currentAppointmentTime, null);
         bookingTimes.set(nextAppointmentTime, s);
         s.setBookedSession(nextAppointmentTime);
+    }
+
+    // getters
+    public int getBookingTimes() {
+        return bookingTimes.size();
+    }
+
+    public List<Student> getStudentList() {
+        return bookingTimes;
+    }
+
+    public String getTutorName() {
+        return name;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("students", studentsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this tutorOrganization as a JSON array
+    private JSONArray studentsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Student student : bookingTimes) {
+            jsonArray.put(student.toJson());
+        }
+        return jsonArray;
     }
 }

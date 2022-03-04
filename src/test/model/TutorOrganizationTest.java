@@ -25,16 +25,16 @@ class TutorOrganizationTest {
     // instantiates all objects (TutorOrganization and Student) needed for the test method
     @BeforeEach
     void runBefore() {
-        billy = new Student();
+        billy = new Student("Billy", 5);
         billy.setStudentName("Billy");
-        sarah = new Student();
+        sarah = new Student("Sarah", 6);
         sarah.setStudentName("Sarah");
-        dil = new Student();
+        dil = new Student("Dil", 7);
         dil.setStudentName("Dil");
-        outsideOfTheBoxTutoring = new TutorOrganization();
-        kidda = new Student();
+        outsideOfTheBoxTutoring = new TutorOrganization("Hello");
+        kidda = new Student("Kidda", 5);
         kidda.setStudentName("Kidda");
-        josh = new Student();
+        josh = new Student("Josh", 6);
         josh.setStudentName("Josh");
     }
 
