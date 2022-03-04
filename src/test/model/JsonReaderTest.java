@@ -60,6 +60,11 @@ public class JsonReaderTest extends JsonTest{
     public void testConstructor() {
         JsonReader j1 = new JsonReader("Hello");
         assertEquals("Hello", j1.getSource());
+    }
+
+    @Test
+    public void testreadFile() {
+
 
     }
 

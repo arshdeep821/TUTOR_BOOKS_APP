@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Test;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -69,6 +71,28 @@ public class JsonWriterTest extends JsonTest{
         JsonWriter j1 = new JsonWriter("coolio");
         assertEquals("coolio", j1.getDestination());
     }
+
+    @Test
+    public void testwrite() {
+            JsonWriter writer = new JsonWriter("./data/testwrite.json");
+            TutorOrganization tutorOrganization = new TutorOrganization("T2");
+            writer.write(tutorOrganization);
+    }
+
+    @Test
+    public void testclose() {
+        JsonWriter writer = new JsonWriter("./data/testwrite.json");
+        TutorOrganization tutorOrganization = new TutorOrganization("T3");
+        writer.close();
+    }
+
+    @Test
+    public void testsaveToFile() {
+        JsonWriter writer = new JsonWriter("./data/testsaveToFile.json");
+        TutorOrganization tutorOrganization = new TutorOrganization("T4");
+        writer.write(tutorOrganization);
+    }
+
 
 
 
