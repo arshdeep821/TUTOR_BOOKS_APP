@@ -17,11 +17,15 @@ import org.json.*;
 public class JsonReader {
     private String source;
 
+    // Method taken from JSONReader class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // EFFECTS: constructs reader to read from source file
     public JsonReader(String source) {
         this.source = source;
     }
 
+    // Method taken from JSONReader class in
+   // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // EFFECTS: reads TutorOrganization from file and returns it;
     // throws IOException if an error occurs reading data from file
     public TutorOrganization read() throws IOException {
@@ -30,6 +34,8 @@ public class JsonReader {
         return parseTutorOrganization(jsonObject);
     }
 
+    // Method taken from JSONReader class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // EFFECTS: reads sourcefile as string and returns it
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();

@@ -1,12 +1,8 @@
 package model;
 
-import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import persistence.JsonReader;
-
-import java.io.IOException;
-import java.util.List;
+import persistence.JsonTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +13,7 @@ This is the class where all the testing will occur for TutorOrganization, but si
 Student, the Student class, which is much smaller, is also tested here
  */
 
-class TutorOrganizationTest extends JsonTest{
+class TutorOrganizationTest extends JsonTest {
 
     // instances of Students and a TutorOrganization setup for runBefore method
     Student billy;
@@ -61,7 +57,7 @@ class TutorOrganizationTest extends JsonTest{
         assertTrue(outsideOfTheBoxTutoring.checkIfTaken(3));
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 3));
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Billy", 5));
-        assertEquals(3,billy.getBookedSession());
+        assertEquals(5,billy.getBookedSession());
 
         // change appointment time
         outsideOfTheBoxTutoring.changeAppointment(billy, 3,4);
@@ -79,7 +75,7 @@ class TutorOrganizationTest extends JsonTest{
         outsideOfTheBoxTutoring.makeNewTutorSession(sarah, 3);
         assertEquals("Sarah", sarah.getStudentName());
         assertTrue(outsideOfTheBoxTutoring.checkIfTaken(3));
-        assertEquals(3, sarah.getBookedSession());
+        assertEquals(6, sarah.getBookedSession());
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Sarah", 3));
 
         //change booking
@@ -123,8 +119,8 @@ class TutorOrganizationTest extends JsonTest{
         assertTrue(outsideOfTheBoxTutoring.checkIfTaken(19));
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Dil", 19));
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Kidda", 0));
-        assertEquals(19, dil.getBookedSession());
-        assertEquals(0, kidda.getBookedSession());
+        assertEquals(7, dil.getBookedSession());
+        assertEquals(5, kidda.getBookedSession());
 
         //approve wrong student at wrong time to test false case for approveStudentName method
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Dil", 0));
@@ -149,7 +145,7 @@ class TutorOrganizationTest extends JsonTest{
         assertTrue(outsideOfTheBoxTutoring.checkIfTaken(10));
         assertTrue(outsideOfTheBoxTutoring.approveStudentName("Billy", 10));
         assertFalse(outsideOfTheBoxTutoring.approveStudentName("Billy", 12));
-        assertEquals(10, billy.getBookedSession());
+        assertEquals(5, billy.getBookedSession());
 
         // change appointment time
         outsideOfTheBoxTutoring.changeAppointment(billy, 10,15);

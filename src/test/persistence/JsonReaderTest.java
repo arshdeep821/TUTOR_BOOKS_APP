@@ -1,8 +1,9 @@
-package model;
+package persistence;
 
+import model.Student;
+import model.TutorOrganization;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import persistence.JsonReader;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class JsonReaderTest extends JsonTest{
+public class JsonReaderTest extends JsonTest {
 
     TutorOrganization tutorOrganization;
 
@@ -19,6 +20,9 @@ public class JsonReaderTest extends JsonTest{
         tutorOrganization = new TutorOrganization();
 
     }
+
+    // Method taken from JSONReaderTest class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     @Test
     public void testReaderNonExistentFile() {
         JsonReader reader = new JsonReader("./data/noSuchFile.json");

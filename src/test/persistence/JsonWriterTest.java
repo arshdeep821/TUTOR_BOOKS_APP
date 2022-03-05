@@ -1,19 +1,22 @@
-package model;
+package persistence;
 
+import model.Student;
+import model.TutorOrganization;
 import org.junit.jupiter.api.Test;
 import persistence.JsonReader;
+import persistence.JsonTest;
 import persistence.JsonWriter;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class JsonWriterTest extends JsonTest{
+public class JsonWriterTest extends JsonTest {
 
+    // Method taken from JSONWriterTest class in
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     @Test
     public void testWriterInvalidFile() {
         try {

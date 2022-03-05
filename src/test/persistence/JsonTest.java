@@ -1,4 +1,6 @@
-package model;
+package persistence;
+
+import model.Student;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

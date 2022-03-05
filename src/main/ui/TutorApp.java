@@ -139,6 +139,7 @@ public class TutorApp {
         }
     }
 
+    // EFFECTS: displays all saved Tutor booking times
     private void displayBookings() {
         System.out.println("Your current bookings are: /n");
         for (Student s : tutorOrganization.getStudentList()) {

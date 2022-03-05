@@ -47,7 +47,7 @@ appointment
 Phase 2:
 - As a user, when I select the quit option from the application menu, I want to be reminded to save my TutorBookings to 
 file and have the option to do so or not.
-- As a user, when I start the application, I want to be given the option to load my TutorBookings list from file.
+- As a user, when I start the application, I want to be able to load my TutorBookings list from file.
 ### Referenced Code:
 
 For my project, It is similar to the HairSolon starter in the github repositories, I did reference some

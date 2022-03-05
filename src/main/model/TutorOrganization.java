@@ -36,8 +36,9 @@ public class TutorOrganization implements Writable {
         if (appointmentTime >= bookingTimes.size()) {
             return false;
         }
-        bookingTimes.set(appointmentTime, s);
-        s.setBookedSession(appointmentTime);
+        Student student = new Student(s.getStudentName(), appointmentTime);
+        bookingTimes.set(appointmentTime, student);
+        //s.setBookedSession(appointmentTime);
         return true;
     }
 
@@ -104,7 +105,6 @@ public class TutorOrganization implements Writable {
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        //json.put("name", name);
         json.put("tutorOrganization", bookingTimesToJson());
         return json;
     }
