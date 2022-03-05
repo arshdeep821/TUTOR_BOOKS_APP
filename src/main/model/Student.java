@@ -49,6 +49,7 @@ public class Student implements Writable {
         this.studentName = name;
     }
 
+    // EFFECTS: puts student info into JSON
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

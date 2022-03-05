@@ -22,12 +22,11 @@ public class TutorApp {
     private static final String JSON_STORE = "./data/tutororganization.json";
     boolean cont = true;
     Scanner scanner = new Scanner(System.in);
-    TutorOrganization tutorOrganization = new TutorOrganization("tutorOrganization");
+    TutorOrganization tutorOrganization = new TutorOrganization();
     Student student = new Student("student", 0);
     int option;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
-
 
 
     // EFFECTS: runs the tutor app
@@ -42,14 +41,13 @@ public class TutorApp {
     //          processes user input
     @SuppressWarnings("methodlength")
     private void runTutor() {
-        /*
         System.out.println("would you like to load your work click 1 for yes, 2 for no");
         int nextint1 = Integer.parseInt(scanner.nextLine());
         if (nextint1 == 1) {
             loadTutorSession();
+            displayBookings();
         }
 
-         */
 
         option = 1;
         System.out.println("Enter Name:");
@@ -96,13 +94,14 @@ public class TutorApp {
 
     // MODIFIES: this
     // EFFECTS: It allows the student to request a new session that is not taken
+    @SuppressWarnings("methodlength")
     private void changeBooking() {
         while (cont) {
             display1();
 
             while (option == 1) {
 
-                int time = scanner.nextInt();
+                int time = Integer.parseInt(scanner.nextLine());
                 if (!tutorOrganization.checkIfTaken(time)) {
                     tutorOrganization.makeNewTutorSession(student, time);
                     System.out.println("Your session is available, appointment is made for " + time);
@@ -112,13 +111,21 @@ public class TutorApp {
                 }
                 System.out.println("Would you like to book another appointment?");
                 System.out.println("type 1 to book again, else 2");
-                option = scanner.nextInt();
+                option = Integer.parseInt(scanner.nextLine());
                 if (option != 1) {
                     System.out.println("Thank you for booking, see you at your session");
                 }
             }
+            System.out.println("Would you like to save your session? Click 1 to save click 2 to exit");
+            int nextInt = Integer.parseInt(scanner.nextLine());
+            if (nextInt == 1) {
+                saveTutorSession();
+            } else {
+                System.out.println("Goodbye! Work will not be saved");
+            }
         }
     }
+
 
     // EFFECTS: saves the tutorOrganization to file
     private void saveTutorSession() {
@@ -129,6 +136,15 @@ public class TutorApp {
             System.out.println("Saved tutorOrganization to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write file: " + JSON_STORE);
+        }
+    }
+
+    private void displayBookings() {
+        System.out.println("Your current bookings are: /n");
+        for (Student s : tutorOrganization.getStudentList()) {
+            if (s != null) {
+                System.out.println(s.getStudentName() + " " + s.getBookedSession());
+            }
         }
     }
 

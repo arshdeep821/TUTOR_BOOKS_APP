@@ -16,7 +16,7 @@ public class JsonReaderTest extends JsonTest{
 
     @BeforeEach
     public void runBefore() {
-        tutorOrganization = new TutorOrganization("My tutor organization");
+        tutorOrganization = new TutorOrganization();
 
     }
     @Test
@@ -32,10 +32,10 @@ public class JsonReaderTest extends JsonTest{
 
     @Test
     public void testReaderEmptyWorkRoom() {
-        JsonReader reader = new JsonReader("./data/testReaderEmptyWorkRoom.json");
+        JsonReader reader = new JsonReader("./data/testReaderEmptyTutorOrganization.json");
         try {
             TutorOrganization tutorOrganization = reader.read();
-            assertEquals("My tutor organization", tutorOrganization.getTutorName());
+            //assertEquals("My tutor organization", tutorOrganization.getTutorName());
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
@@ -43,13 +43,13 @@ public class JsonReaderTest extends JsonTest{
 
     @Test
     public void testReaderGeneralTutorOrganization() {
-        JsonReader reader = new JsonReader("./data/testReaderGeneralTutorOrganization");
+        JsonReader reader = new JsonReader("./data/testReaderGeneralTutorOrganization.json");
         try {
             TutorOrganization tutorOrganization = reader.read();
-            assertEquals("My tutor organization",tutorOrganization.getTutorName());
+            //assertEquals("My tutor organization",tutorOrganization.getTutorName());
             List<Student> students = tutorOrganization.getStudentList();
-            checkStudent("Josh", 5, students.get(0));
-            checkStudent("Grace", 8, students.get(1));
+            checkStudent("Josh", 5, students.get(5));
+            checkStudent("Grace", 8, students.get(8));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
@@ -62,11 +62,12 @@ public class JsonReaderTest extends JsonTest{
         assertEquals("Hello", j1.getSource());
     }
 
+/*
     @Test
     public void testreadFile() {
-
-
     }
+
+ */
 
 
 }

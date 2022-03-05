@@ -36,7 +36,7 @@ class TutorOrganizationTest extends JsonTest{
         sarah.setStudentName("Sarah");
         dil = new Student("Dil", 7);
         dil.setStudentName("Dil");
-        outsideOfTheBoxTutoring = new TutorOrganization("Outside Of The Box Tutoring");
+        outsideOfTheBoxTutoring = new TutorOrganization();
         kidda = new Student("Kidda", 5);
         kidda.setStudentName("Kidda");
         josh = new Student("Josh", 6);
@@ -198,16 +198,20 @@ class TutorOrganizationTest extends JsonTest{
 
         assertEquals(20, outsideOfTheBoxTutoring.getStudentList().size());
     }
-
+/*
     @Test
     public void testgetTutorName() {
         assertEquals("Outside Of The Box Tutoring", outsideOfTheBoxTutoring.getTutorName());
     }
 
+ */
+/*
     @Test
     public void testTutorOrganizationtoJson() {
         billy.toJson();
     }
+
+ */
 
 /*
     @Test

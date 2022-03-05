@@ -42,8 +42,8 @@ public class JsonReader {
 
     // EFFECTS: parses TutorOrganization from JSON object and returns it
     private TutorOrganization parseTutorOrganization(JSONObject jsonObject) {
-        String name = jsonObject.getString("name");
-        TutorOrganization tutorOrganization = new TutorOrganization(name);
+        //String name = jsonObject.getString("name");
+        TutorOrganization tutorOrganization = new TutorOrganization();
         addStudents(tutorOrganization, jsonObject);
         return tutorOrganization;
     }
@@ -51,7 +51,7 @@ public class JsonReader {
     // MODIFIES: tutorOrganization
     // EFFECTS: parses Students from JSON object and adds them to TutorOrganization
     private void addStudents(TutorOrganization tutorOrganization, JSONObject jsonObject) {
-        JSONArray jsonArray = jsonObject.getJSONArray("students");
+        JSONArray jsonArray = jsonObject.getJSONArray("tutorOrganization");
         for (Object json : jsonArray) {
             JSONObject nextStudent = (JSONObject) json;
             addStudent(tutorOrganization, nextStudent);
@@ -71,7 +71,6 @@ public class JsonReader {
     public String getSource() {
         return source;
     }
-
 
 
 }

@@ -17,7 +17,7 @@ public class JsonWriterTest extends JsonTest{
     @Test
     public void testWriterInvalidFile() {
         try {
-            TutorOrganization tutorOrganization = new TutorOrganization("My tutor organization");
+            TutorOrganization tutorOrganization = new TutorOrganization();
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
             fail("IOException was expected");
@@ -29,7 +29,7 @@ public class JsonWriterTest extends JsonTest{
     @Test
     public void testWriterEmptyTutorOrganization() {
         try {
-            TutorOrganization tutorOrganization = new TutorOrganization("My tutor organization");
+            TutorOrganization tutorOrganization = new TutorOrganization();
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyTutorOrganization.json");
             writer.open();
             writer.write(tutorOrganization);
@@ -37,7 +37,7 @@ public class JsonWriterTest extends JsonTest{
 
             JsonReader reader = new JsonReader("./data/testWriterEmptyTutorOrganization.json");
             tutorOrganization = reader.read();
-            assertEquals("My tutor organization", tutorOrganization.getTutorName());
+            //assertEquals("My tutor organization", tutorOrganization.getTutorName());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }
@@ -46,7 +46,7 @@ public class JsonWriterTest extends JsonTest{
     @Test
     public void testWriterGeneralWorkroom() {
         try {
-            TutorOrganization tutorOrganization = new TutorOrganization("My tutor organization");
+            TutorOrganization tutorOrganization = new TutorOrganization();
             tutorOrganization.makeNewTutorSession(new Student("Cole", 8), 8);
             tutorOrganization.makeNewTutorSession(new Student("Billy", 3), 3);
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralTutorOrganization.json");
@@ -56,7 +56,7 @@ public class JsonWriterTest extends JsonTest{
 
             JsonReader reader = new JsonReader("./data/testWriterGeneralTutorOrganization.json");
             tutorOrganization = reader.read();
-            assertEquals("My tutor organization", tutorOrganization.getTutorName());
+            //assertEquals("My tutor organization", tutorOrganization.getTutorName());
             List<Student> students = tutorOrganization.getStudentList();
             checkStudent("Cole", 8, students.get(8));
             checkStudent("Billy", 3, students.get(3));
@@ -94,9 +94,6 @@ public class JsonWriterTest extends JsonTest{
     }
 
  */
-
-
-
 
 
 }

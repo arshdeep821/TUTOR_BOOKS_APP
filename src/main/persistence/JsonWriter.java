@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.io.*;
 
-// Represents a writer that writes JSON representation of workroom rile
+// Represents a writer that writes JSON representation of tutorOrganization rile
 public class JsonWriter {
     private static final int TAB = 4;
     private PrintWriter writer;
@@ -20,8 +20,8 @@ public class JsonWriter {
     // EFFECTS: opens writer, throws FIleNotFoundException if destination file cannot
     // be opened for writing
     public void open() throws FileNotFoundException {
-        File t1 = new File(destination);
-        writer = new PrintWriter(t1);
+        //File t1 = new File(destination);
+        writer = new PrintWriter(new File(destination));
     }
 
     // MODIFIES: this

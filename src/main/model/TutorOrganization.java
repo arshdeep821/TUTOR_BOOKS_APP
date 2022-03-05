@@ -18,17 +18,15 @@ session
  */
 public class TutorOrganization implements Writable {
     private List<Student> bookingTimes;
-    private String name;
+    //private String name;
 
 
     // EFFECTS: Construct empty ArrayList with 20 null slots
-    public TutorOrganization(String name) {
+    public TutorOrganization() {
         bookingTimes = new ArrayList<>();
         for (int n = 0; n <= 19; n++) {
             bookingTimes.add(n, null);
         }
-
-        this.name = name;
     }
 
     // REQUIRES: An appointmentTime between [0,19]
@@ -42,7 +40,6 @@ public class TutorOrganization implements Writable {
         s.setBookedSession(appointmentTime);
         return true;
     }
-
 
 
     // EFFECTS: return true if the student is booked at the correct appointmentTime of their choice
@@ -83,7 +80,7 @@ public class TutorOrganization implements Writable {
     //           time where another different Student has already booked one
     // MODIFIES: this and Student
     // EFFECTS: changes the appointment time of student
-    public void changeAppointment(Student s, int currentAppointmentTime,int nextAppointmentTime) {
+    public void changeAppointment(Student s, int currentAppointmentTime, int nextAppointmentTime) {
         bookingTimes.set(currentAppointmentTime, null);
         bookingTimes.set(nextAppointmentTime, s);
         s.setBookedSession(nextAppointmentTime);
@@ -94,28 +91,33 @@ public class TutorOrganization implements Writable {
         return bookingTimes.size();
     }
 
+
     public List<Student> getStudentList() {
         return bookingTimes;
     }
 
-    public String getTutorName() {
-        return name;
-    }
+    //public String getTutorName() {
+    //return name;
+    //}
 
+    // EFFECTS: Creates new JSON object to store the tutorOrganization within
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("name", name);
-        json.put("students", studentsToJson());
+        //json.put("name", name);
+        json.put("tutorOrganization", bookingTimesToJson());
         return json;
     }
 
+
     // EFFECTS: returns things in this tutorOrganization as a JSON array
-    private JSONArray studentsToJson() {
+    private JSONArray bookingTimesToJson() {
         JSONArray jsonArray = new JSONArray();
 
-        for (Student student : bookingTimes) {
-            jsonArray.put(student.toJson());
+        for (Student s : bookingTimes) {
+            if (s != null) {
+                jsonArray.put(s.toJson());
+            }
         }
         return jsonArray;
     }
