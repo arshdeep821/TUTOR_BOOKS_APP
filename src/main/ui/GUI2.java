@@ -162,7 +162,8 @@ public class GUI2 implements ActionListener {
             loadTutorSession();
             makeLoadingTable();
         } else if (e.getSource() == quitButton) {
-            mainFrame.dispose();
+            //mainFrame.dispose();
+            System.exit(0);
         } else if (e.getSource() == viewBookings) {
             makeLoadingTable();
         } else if (e.getSource() == makeBookingButton) {
