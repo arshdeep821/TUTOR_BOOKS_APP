@@ -152,6 +152,7 @@ public class GUI2 implements ActionListener {
         fullSlotsButton = new JButton("View Taken Slots");
     }
 
+    // EFFECTS: Performs action depending on button click
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == saveButton) {
@@ -247,7 +248,7 @@ public class GUI2 implements ActionListener {
         emptySlotsFrame.add(emptyListPanel);
     }
 
-    // EFFECTS: Initializes fields and sets up frame for findFullSlots()
+    // EFFECTS: Initializes fields and sets up frame for findEmptySlots()
     private void emptySlotSetup() {
         emptySlotsFrame = new JFrame();
         emptySlotsFrame.setSize(350, 450);
@@ -310,7 +311,7 @@ public class GUI2 implements ActionListener {
         loadingFrame.setVisible(true);
     }
 
-    // REQUIRES: A time slot (integer)
+    // REQUIRES: A time slot (integer) [0, 19]
     // EFFECTS: Gets the name of the student booked at index
     //          else return "empty"
     private String getStudentName(int index) {
@@ -337,7 +338,10 @@ public class GUI2 implements ActionListener {
         savingFrame.add(savingImage);
     }
 
-    // EFFECTS: Assigns a field to each textbook when user is attempting to make a booking
+
+    // MODIFIES: this
+    // EFFECTS: Assigns a field to each text bar when user is attempting to make a booking and creates booking
+    //          if slot is free
     public void tryBooking() {
         user = nameInput.getText();
         int bookingTime = Integer.parseInt(bookingInput.getText());
@@ -354,7 +358,7 @@ public class GUI2 implements ActionListener {
     }
 
     // REQUIRES: a time [0, 19]
-    // MODIFIES: student, tutorOrganization
+    // MODIFIES: this
     // EFFECTS: if time slot is empty, assign student to this time
     //          else ask student to book for a different time
     private void makeBooking(int time) {
@@ -366,11 +370,10 @@ public class GUI2 implements ActionListener {
         } else {
             bookingIsUnsuccessful(time);
         }
-
     }
 
 
-    // REQUIRES: time[0, 19], student to make an unsuccessful booking in makeBooking(int time)
+    // REQUIRES: time[0, 19] and student to make an unsuccessful booking in makeBooking(int time)
     // EFFECTS: Creates a frame confirming unsuccessful booking
     private void bookingIsUnsuccessful(int time) {
         insuccessfullBooking = new JFrame();
@@ -392,7 +395,7 @@ public class GUI2 implements ActionListener {
         insuccessfullBooking.add(insuccessfullImage);
     }
 
-    // REQUIRES: time [0, 19], student to make a successful booking in makeBooking(int time)
+    // REQUIRES: time [0, 19] and student to make a successful booking in makeBooking(int time)
     // EFFECTS: Creates frame confirming successful booking
     private void bookingIsSuccessful(int time) {
         successfullBooking = new JFrame();
