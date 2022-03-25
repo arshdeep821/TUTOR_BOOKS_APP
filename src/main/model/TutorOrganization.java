@@ -10,7 +10,7 @@ import java.util.List;
 
 // Class level comment:
 
-/*
+/**
 - This class represents a list of Students, which translates to a list of bookings of which student has booked which
 session
 - It sets up a list of 20 null slots, and it will set the slot number to the student name who requests that time

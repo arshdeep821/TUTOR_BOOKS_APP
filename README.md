@@ -45,9 +45,13 @@ appointment
   a session (to be able to exit out of booking whenever I feel I have booked enough sessions)
 
 Phase 2:
-- As a user, when I select the quit option from the application menu, I want to be reminded to save my TutorBookings to 
-file and have the option to do so or not.
-- As a user, when I start the application, I want to be able to load my TutorBookings list from file.
+- As a user, I want to be able to save my tutor session list to file
+- As a user, I want to be able to be able to load my tutor session list from file
+
+Phase 3:
+- hello
+
+
 ### Referenced Code:
 
 For my project, It is similar to the HairSolon starter in the github repositories, I did reference some
