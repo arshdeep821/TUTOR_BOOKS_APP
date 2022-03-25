@@ -7,7 +7,6 @@ import persistence.JsonWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class TutorAppV2 {
@@ -19,11 +18,13 @@ public class TutorAppV2 {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+    // EFFECTS: runs runTutor2()
     public TutorAppV2() {
-        runTeller2();
+        runTutor2();
     }
 
-    private void runTeller2() {
+    // EFFECTS: Initializes fields and sets up forloop
+    private void runTutor2() {
         boolean keepGoing = true;
         String command = null;
 
@@ -43,6 +44,7 @@ public class TutorAppV2 {
         System.out.println("\nGoodbye. See you at your tutoring session");
     }
 
+    // EFFECTS: Initializes fields
     private void init() {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
@@ -52,6 +54,7 @@ public class TutorAppV2 {
         input.useDelimiter("\n");
     }
 
+    // EFFECTS: Displays options to user
     private void displayMenu() {
         System.out.println("\nSelect from:");
         System.out.println("\tm -> make Booking");
@@ -62,6 +65,7 @@ public class TutorAppV2 {
         System.out.println("\te -> exit tutoring app");
     }
 
+    // EFFECTS: Executes different components of code depending on users input
     private void processCommand(String command) {
         if (command.equals("m")) {
             enterInfo();
@@ -80,6 +84,8 @@ public class TutorAppV2 {
         }
     }
 
+    // MODIFIES: student
+    // EFFECTS: Allows user to enter info
     private void enterInfo() {
         System.out.println("Enter Name:");
         String name = input.next();
@@ -88,6 +94,8 @@ public class TutorAppV2 {
         System.out.println("Hello " + name);
     }
 
+    // MODIFIES: student, tutorOrganization
+    // EFFECTS: Books appointment if time slot is free
     private void makebooking() {
 
         System.out.println("Select a time from 0-19(24hr clock) for your tutoring session");
@@ -103,6 +111,9 @@ public class TutorAppV2 {
         }
     }
 
+    // REQUIRES: student to already have a booked session
+    // MODIFIES: student, tutorOrganization
+    // EFFECTS: Allows user to change booking
     private void changeBooking() {
         System.out.println("Please enter your name:");
         String name = input.next();
@@ -123,6 +134,9 @@ public class TutorAppV2 {
         }
     }
 
+    // REQUIRES: student to have a booking
+    // MODIFIES: student, tutorOrganization
+    // EFFECTS: Allows student to cancel booking
     private void cancelBooking() {
         System.out.println("enter your name:");
         String name = input.next();

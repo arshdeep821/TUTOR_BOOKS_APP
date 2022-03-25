@@ -49,8 +49,18 @@ Phase 2:
 - As a user, I want to be able to be able to load my tutor session list from file
 
 Phase 3:
-- hello
-
+- As a user, I want to be able to book a single or multiple tutoring sessions at different
+  times. In a sense, adding multiple tutoring sessions to my schedule
+- As a user, I want to be informed that a session or sessions have been booked successfully after making a single
+  appointment
+- As a user, I want to be informed when a session is taken, after attempting to book a session
+  (that is already booked by another student) and be told to rebook for a different time
+- As a user, I want the option to continue booking more tutoring sessions or to stop after making a single booking
+  a session (to be able to exit out of booking whenever I feel I have booked enough sessions)
+- As a user, I want to be able to save my tutor session list to file
+- As a user, I want to be able to be able to load my tutor session list from file
+- As a user, I want to be able to see the sessions/time slots that are unbooked
+- AS a user, I want to see which sessions are booked
 
 ### Referenced Code:
 

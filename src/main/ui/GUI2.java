@@ -490,10 +490,8 @@ public class GUI2 implements ActionListener {
             exceptionLabel.setBounds(0, 0, 200, 50);
 
             exceptionFrame.add(exceptionLabel);
-
         }
     }
-
 
     // MODIFIES: this
     // EFFECTS: loads tutorsession from file
