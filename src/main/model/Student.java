@@ -55,6 +55,7 @@ public class Student implements Writable {
         JSONObject json = new JSONObject();
         json.put("name", studentName);
         json.put("int", bookedSession);
+        //EventLog.getInstance().logEvent(new Event("Loaded"));
         return json;
     }
 

@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Student;
 import model.TutorOrganization;
 import persistence.JsonReader;
@@ -163,6 +165,7 @@ public class GUI2 implements ActionListener {
             makeLoadingTable();
         } else if (e.getSource() == quitButton) {
             //mainFrame.dispose();
+            printEvents();
             System.exit(0);
         } else if (e.getSource() == viewBookings) {
             makeLoadingTable();
@@ -176,6 +179,28 @@ public class GUI2 implements ActionListener {
             findFullSlots();
         }
     }
+
+    public void printEvents() {
+        for (Event e : EventLog.getInstance()) {
+            System.out.println("Event: " + e.getDescription() + " on " + e.getDate());
+        }
+    }
+/*
+    @Override
+    public void printLog(EventLog el) throws LogException {
+        try {
+            for (Event next : el) {
+                fw.write(next.toString());
+                fw.write("\n\n");
+            }
+            fw.flush();
+            fw.close();
+        } catch (IOException e) {
+            throw new LogException("Cannot write to file");
+        }
+    }
+
+ */
 
     // EFFECTS: Displays a list of times slots along with the name that are already taken
     public void findFullSlots() {
@@ -270,7 +295,7 @@ public class GUI2 implements ActionListener {
     }
 
     // EFFECTS: Constructs a JTABLE with each row representing a time slot and the name of the student if it is full
-    //          False if slot is empty
+    //          if slot is empty return "empty"
     @SuppressWarnings("methodlength")
     public void makeLoadingTable() {
 
@@ -327,14 +352,14 @@ public class GUI2 implements ActionListener {
     // EFFECTS: Constructs new frame with an image indicating this TutorOrganization is saved
     public void savingWindow() {
         savingFrame = new JFrame("Saving Window");
-        savingFrame.setSize(820, 600);
+        savingFrame.setSize(735, 570);
         savingFrame.setLayout(null);
         savingFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         savingFrame.setLocationRelativeTo(null);
         savingFrame.setVisible(true);
 
         savingImage = new JLabel(new ImageIcon("./data/saving_image.PNG"));
-        savingImage.setBounds(10, 0, 770, 500);
+        savingImage.setBounds(5, 0, 700, 500);
         savingImage.setVisible(true);
         savingFrame.add(savingImage);
     }
@@ -378,7 +403,7 @@ public class GUI2 implements ActionListener {
     // EFFECTS: Creates a frame confirming unsuccessful booking
     private void bookingIsUnsuccessful(int time) {
         insuccessfullBooking = new JFrame();
-        insuccessfullBooking.setSize(1100, 590);
+        insuccessfullBooking.setSize(920, 590);
         insuccessfullBooking.setLayout(null);
         insuccessfullBooking.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         insuccessfullBooking.setLocationRelativeTo(null);
@@ -387,11 +412,11 @@ public class GUI2 implements ActionListener {
         insuccessfullLabel = new JLabel(user + " your requested session at " + time
                 + " is taken please select another time.");
         insuccessfullLabel.setFont(new Font(Font.DIALOG, Font.PLAIN, 25));
-        insuccessfullLabel.setBounds(10,10, 800, 50);
+        insuccessfullLabel.setBounds(10,10, 880, 50);
         insuccessfullBooking.add(insuccessfullLabel);
 
         insuccessfullImage = new JLabel(new ImageIcon("./data/unsuccessful_image.PNG"));
-        insuccessfullImage.setBounds(50, 60, 1000, 450);
+        insuccessfullImage.setBounds(50, 60, 800, 450);
         insuccessfullImage.setVisible(true);
         insuccessfullBooking.add(insuccessfullImage);
     }
@@ -408,7 +433,7 @@ public class GUI2 implements ActionListener {
 
         successfullLabel = new JLabel(user + " your session is available, appointment is made for " + time + ".");
         successfullLabel.setFont(new Font(Font.DIALOG, Font.PLAIN, 25));
-        successfullLabel.setBounds(10, 10, 700, 50);
+        successfullLabel.setBounds(10, 10, 850, 50);
         successfullBooking.add(successfullLabel);
 
         successfullImage = new JLabel(new ImageIcon("./data/successful_image.PNG"));
@@ -444,7 +469,6 @@ public class GUI2 implements ActionListener {
         success.setBounds(10, 110, 300, 25);
         bookingFrame.add(success);
         //success.setText();
-
          */
     }
 
@@ -504,17 +528,21 @@ public class GUI2 implements ActionListener {
             tutorOrganization = jsonReader.read();
         } catch (IOException e) {
             JFrame exceptionFrame = new JFrame();
+
             exceptionFrame.setSize(200, 200);
             exceptionFrame.setLayout(null);
             exceptionFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             exceptionFrame.setLocationRelativeTo(null);
             exceptionFrame.setVisible(true);
 
+            /*
             JLabel exceptionLabel = new JLabel("Unable to read from file: " + JSON_STORE);
             exceptionLabel.setFont(new Font(Font.DIALOG, Font.PLAIN, 25));
             exceptionLabel.setBounds(0, 0, 200, 50);
 
             exceptionFrame.add(exceptionLabel);
+
+             */
         }
     }
 }

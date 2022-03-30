@@ -78,3 +78,28 @@ a link to the repository if you want to check it out and look at the similaritie
 
 gh repo clone github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
+### Phase 4: Task 2
+Event: Successful Booking Session for Arshdeep at 15 on Wed Mar 30 12:33:23 PDT 2022
+
+Event: Successful Booking Session for Jason at 4 on Wed Mar 30 12:33:31 PDT 2022
+
+Event: Successful Booking Session for Luke at 12 on Wed Mar 30 12:33:44 PDT 2022
+
+Event: Unsuccessful Booking Session at 12 on Wed Mar 30 12:33:50 PDT 2022
+
+Event: Successful Booking Session for Jason at 14 on Wed Mar 30 12:33:59 PDT 2022
+
+Event: Unsuccessful Booking Session at 14 on Wed Mar 30 12:34:01 PDT 2022
+
+Event: Tutor Organization Saved on Wed Mar 30 12:34:06 PDT 2022
+
+### Phase 4: Task 3
+Add a section at the end of your README.md file entitled "Phase 4: Task 3". 
+Reflect on the design presented in your UML class diagram.  
+If you had more time to work on the project, is there any refactoring that you would do to improve your design?
+If so, describe the changes you would make in point form in this section of your README.md file.
+
+- I would definitely implement some refactoring within my GUI as there is a lot of duplication in relation with the swing
+objects. For example almost all my JLabels and JButtons needed to set the visibility to true and had to have their 
+bounds set for every single instance of it.
+- I would also refactor my 

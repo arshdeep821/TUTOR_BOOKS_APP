@@ -34,10 +34,13 @@ public class TutorOrganization implements Writable {
     // EFFECTS: gets student booked into requested appointmentTime if it is free
     public boolean makeNewTutorSession(Student s, int appointmentTime) {
         if (appointmentTime >= bookingTimes.size()) {
+            //EventLog.getInstance().logEvent(new Event("Failed"));
             return false;
         }
         Student student = new Student(s.getStudentName(), appointmentTime);
         bookingTimes.set(appointmentTime, student);
+        EventLog.getInstance().logEvent(new Event("Successful Booking Session for "
+                + student.getStudentName() + " at " + appointmentTime));
         //s.setBookedSession(appointmentTime);
         return true;
     }
@@ -64,8 +67,11 @@ public class TutorOrganization implements Writable {
     public boolean checkIfTaken(int appointmentTime) {
         if (bookingTimes.get(appointmentTime) == null) {
             return false;
+        } else {
+            EventLog.getInstance().logEvent(new Event("Unsuccessful Booking Session at " + appointmentTime));
+            return true;
         }
-        return true;
+
     }
 
     // REQUIRES: current appointment the student has booked
@@ -106,6 +112,8 @@ public class TutorOrganization implements Writable {
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("tutorOrganization", bookingTimesToJson());
+
+        EventLog.getInstance().logEvent(new Event("Tutor Organization Saved"));
         return json;
     }
 
@@ -117,8 +125,10 @@ public class TutorOrganization implements Writable {
         for (Student s : bookingTimes) {
             if (s != null) {
                 jsonArray.put(s.toJson());
+                //EventLog.getInstance().logEvent(new Event("Hello"));
             }
         }
+        //EventLog.getInstance().logEvent(new Event("Tutor Organization Loaded"));
         return jsonArray;
     }
 }

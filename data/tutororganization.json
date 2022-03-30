@@ -1,42 +1,10 @@
 {"tutorOrganization": [
     {
-        "name": "shingar",
-        "int": 0
-    },
-    {
-        "name": "gay",
-        "int": 2
-    },
-    {
-        "name": "jimmy",
-        "int": 3
-    },
-    {
-        "name": "grace",
-        "int": 6
-    },
-    {
-        "name": "ethan",
-        "int": 7
-    },
-    {
-        "name": "aloo",
-        "int": 10
-    },
-    {
-        "name": "avtar",
-        "int": 12
-    },
-    {
-        "name": "arsh",
-        "int": 14
-    },
-    {
-        "name": "rex",
+        "name": "ARsh",
         "int": 15
     },
     {
-        "name": "max",
-        "int": 18
+        "name": "james",
+        "int": 19
     }
 ]}
