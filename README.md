@@ -99,7 +99,19 @@ Reflect on the design presented in your UML class diagram.
 If you had more time to work on the project, is there any refactoring that you would do to improve your design?
 If so, describe the changes you would make in point form in this section of your README.md file.
 
+- If I had more time I would implement a bi-directional relationship between Student and TutorOrganization because
+that would aid in cancelling a booking or changing a booking. I would implement a bidirectional relationship because every time
+a student gets booked in TutorOrganization, the time assigned to the student also changes and vice versa. These seem like perfect
+conditions to implement a bidirectional relationship.
 - I would definitely implement some refactoring within my GUI as there is a lot of duplication in relation with the swing
-objects. For example almost all my JLabels and JButtons needed to set the visibility to true and had to have their 
-bounds set for every single instance of it.
-- I would also refactor my 
+objects. For example almost all my JFrames, JLabels and JButtons needed to set the visibility to true, had to have their 
+bounds set, set it to hide on close, setting font size and font, for every single instance of it. 
+I think this could be extracted into three different methods (one for each type) that can be called whenever I want to instantiate
+a new JLabel, JButton, and JFrame and have it setup the way I want it without manually doing it over and over. This would reduce
+the duplication of code in this class and as a result, it could possibly aid with the readability as there is less repetitive code
+to read through
+- I would also refactor my GUI2 class by splitting it into several classes in order to improve the cohesion. Each class
+should theoretically have one concept but my GUI2 class has several concepts implemented all related to my GUI. This 
+could be fixed by making several classes separating the GUI2 class into components that only have one concept. For example,
+one class for the main frame, one class for the booking frame, etc. It would increase the readability of the code all while
+improving the cohesion of it as well.
