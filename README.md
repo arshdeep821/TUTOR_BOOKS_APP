@@ -118,3 +118,10 @@ could be fixed by making several classes separating the GUI2 class into componen
 one class for the main frame, one class for the booking frame, etc. It would increase the readability of the code all while
 improving the cohesion of it as well. These smaller classes could all be put into one GUI package making it more
 organized if an outside source ever wants to look into the code.
+- I would add more exceptions within my code in order to make it more robust all while maintaining the same functionality.
+For example, I could add an exception that if the user enters a value for their booking time that is not an integer,
+the program would continue to run and instead display an error message saying to enter a valid time, such as an integer.
+I could have another exception that if the user enters an empty string as their name, an exception could be caught and
+another pop up window could tell the user to enter a valid name (one with characters). These exceptions would maintain
+the functionality of my code all while making it more robust by removing the REQUIRES clause
+- Creating addition helper methods in my model classes would aid with the readability of the code
