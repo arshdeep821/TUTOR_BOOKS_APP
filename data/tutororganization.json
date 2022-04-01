@@ -1,4 +1,10 @@
-{"tutorOrganization": [{
-    "name": "hu",
-    "int": 6
-}]}
+{"tutorOrganization": [
+    {
+        "name": "Arshdeep",
+        "int": 6
+    },
+    {
+        "name": "Simar",
+        "int": 7
+    }
+]}
