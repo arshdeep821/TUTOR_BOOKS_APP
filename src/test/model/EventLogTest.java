@@ -21,6 +21,7 @@ public class EventLogTest {
     private Event e2;
     private Event e3;
 
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     @BeforeEach
     public void loadEvents() {
         e1 = new Event("A1");
@@ -32,6 +33,7 @@ public class EventLogTest {
         el.logEvent(e3);
     }
 
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     @Test
     public void testLogEvent() {
         List<Event> l = new ArrayList<Event>();
@@ -46,6 +48,7 @@ public class EventLogTest {
         assertTrue(l.contains(e3));
     }
 
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     @Test
     public void testClear() {
         EventLog el = EventLog.getInstance();

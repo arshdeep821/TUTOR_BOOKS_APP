@@ -19,20 +19,22 @@ public class EventTest {
     //is different from time that line (1) is executed.  Lines (1) and (2) must
     //run in same millisecond for this test to make sense and pass.
 
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     @BeforeEach
     public void runBefore() {
         e = new Event("Sensor open at door");   // (1)
         d = Calendar.getInstance().getTime();   // (2)
     }
 
-    /** test not passing due to the millisecond difference
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     @Test
     public void testEvent() {
         assertEquals("Sensor open at door", e.getDescription());
         assertEquals(d, e.getDate());
     }
-     */
 
+
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     @Test
     public void testToString() {
         assertEquals(d.toString() + "\n" + "Sensor open at door", e.toString());

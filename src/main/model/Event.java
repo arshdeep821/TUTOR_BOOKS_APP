@@ -18,6 +18,7 @@ public class Event {
      * and the current date/time stamp.
      * @param description  a description of the event
      */
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     public Event(String description) {
         dateLogged = Calendar.getInstance().getTime();
         this.description = description;
@@ -27,6 +28,7 @@ public class Event {
      * Gets the date of this event (includes time).
      * @return  the date of the event
      */
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     public Date getDate() {
         return dateLogged;
     }
@@ -35,10 +37,12 @@ public class Event {
      * Gets the description of this event.
      * @return  the description of the event
      */
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     public String getDescription() {
         return description;
     }
 
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     @Override
     public boolean equals(Object other) {
         if (other == null) {  // remover curly
@@ -55,11 +59,13 @@ public class Event {
                 && this.description.equals(otherEvent.description));
     }
 
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     @Override
     public int hashCode() {
         return (HASH_CONSTANT * dateLogged.hashCode() + description.hashCode());
     }
 
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     @Override
     public String toString() {
         return dateLogged.toString() + "\n" + description;

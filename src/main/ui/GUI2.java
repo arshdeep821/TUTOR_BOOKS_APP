@@ -180,27 +180,13 @@ public class GUI2 implements ActionListener {
         }
     }
 
+    // EFFECTS: Prints events to the console
     public void printEvents() {
         for (Event e : EventLog.getInstance()) {
             System.out.println("Event: " + e.getDescription() + " on " + e.getDate());
         }
     }
-/*
-    @Override
-    public void printLog(EventLog el) throws LogException {
-        try {
-            for (Event next : el) {
-                fw.write(next.toString());
-                fw.write("\n\n");
-            }
-            fw.flush();
-            fw.close();
-        } catch (IOException e) {
-            throw new LogException("Cannot write to file");
-        }
-    }
 
- */
 
     // EFFECTS: Displays a list of times slots along with the name that are already taken
     public void findFullSlots() {

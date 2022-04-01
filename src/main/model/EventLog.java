@@ -20,6 +20,7 @@ public class EventLog implements Iterable<Event> {
      * Prevent external construction.
      * (Singleton Design Pattern).
      */
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     private EventLog() {
         events = new ArrayList<Event>();
     }
@@ -30,6 +31,7 @@ public class EventLog implements Iterable<Event> {
      * (Singleton Design Pattern)
      * @return  instance of EventLog
      */
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     public static EventLog getInstance() {
         if (theLog == null) { // remove curly
             theLog = new EventLog();
@@ -42,6 +44,7 @@ public class EventLog implements Iterable<Event> {
      * Adds an event to the event log.
      * @param e the event to be added
      */
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     public void logEvent(Event e) {
         events.add(e);
     }
@@ -49,11 +52,13 @@ public class EventLog implements Iterable<Event> {
     /**
      * Clears the event log and logs the event.
      */
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     public void clear() {
         events.clear();
         logEvent(new Event("Event log cleared."));
     }
 
+    // Method taken from gh repo clone github.students.cs.ubc.ca/CPSC210/AlarmSystem
     @Override
     public Iterator<Event> iterator() {
         return events.iterator();
